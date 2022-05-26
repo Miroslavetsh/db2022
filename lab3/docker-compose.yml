@@ -4,8 +4,8 @@ services:
     build: db
     restart: always
     environment:
-      POSTGRES_DB: testdb
-      POSTGRES_PASSWORD: password
+      POSTGRES_DB: lab3
+      POSTGRES_PASSWORD: postgres
   app:
     build: app
     depends_on: [database]
@@ -14,4 +14,4 @@ services:
     ports:
       - "5000:5000"
     environment:
-      SQLALCHEMY_DATABASE_URI: 'postgresql://postgres:password@database:5432/testdb'
+      SQLALCHEMY_DATABASE_URI: 'postgresql://postgres:postgres@localhost:5432/lab3'

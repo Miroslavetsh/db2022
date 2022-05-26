@@ -9,22 +9,25 @@ api = Blueprint('students', 'students')
 
 
 @api.route('/students', methods=['GET'])
-def api_get():
-    ''' Get all entities'''
-    students = student_service.get()
+def api_get_all():
+    students = student_service.get_all()
     return jsonify([student.as_dict() for student in students])
+
+
+@api.route('/students/<string:id>', methods=['GET'])
+def api_get(id):
+    student = student_service.get(id)
+    return jsonify(student)
 
 
 @api.route('/students', methods=['POST'])
 def api_post():
-    ''' Create entity'''
     student = student_service.post(request.json)
     return jsonify(student.as_dict())
 
 
 @api.route('/students/<string:id>', methods=['PUT'])
 def api_put(id):
-    ''' Update entity by id'''
     body = request.json
     body['id'] = id
     res = student_service.put(body)
@@ -33,17 +36,13 @@ def api_put(id):
 
 @api.route('/students/<string:id>', methods=['DELETE'])
 def api_delete(id):
-    ''' Delete entity by id'''
     res = student_service.delete(id)
     return jsonify(res)
 
 
 @api.errorhandler(HTTPException)
 def handle_exception(e):
-    """Return JSON format for HTTP errors."""
-    # start with the correct headers and status code from the error
     response = e.get_response()
-    # replace the body with JSON
     response.data = json.dumps({
         'success': False,
         "message": e.description
