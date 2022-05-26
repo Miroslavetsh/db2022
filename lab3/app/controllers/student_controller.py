@@ -17,7 +17,7 @@ def api_get_all():
 @api.route('/students/<string:id>', methods=['GET'])
 def api_get(id):
     student = student_service.get(id)
-    return jsonify(student)
+    return jsonify(student.as_dict())
 
 
 @api.route('/students', methods=['POST'])
