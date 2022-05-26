@@ -3,7 +3,7 @@ CREATE TABLE students (
     full_name VARCHAR(128) NOT NULL
 );
 
-CREATE TABLE attendancies (
+CREATE TABLE attendances (
     id SERIAL PRIMARY KEY,
     val CHAR NOT NULL,
     subject_date DATE NOT NULL,
