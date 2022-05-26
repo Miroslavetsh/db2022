@@ -46,6 +46,20 @@ python app.py
 
 (required)
 
+## Schemas
+
+### Student
+
+- id
+- full_name
+
+### Attendance
+
+- id
+- val (char that can be empty if student is present or contain a n symbol if not )
+- subject_date (time stamp)
+- student_id
+
 ## Test and Verification
 
 You can test the relevant routes (with **Postman**, for example), such as:
@@ -54,8 +68,16 @@ You can test the relevant routes (with **Postman**, for example), such as:
 
 - GET `/students` - get a list of all students
 - GET `/students/:id` - get a student
-- POST `/students` - add a new student (requires a full_name parameter in body)
-- PUT `/students/:id` - update a student (requires a full_name parameter in body)
+- POST `/students` - add a new student (requires parameters from schema in body)
+- PUT `/students/:id` - update a student (requires parameters from schema in body)
 - DELETE `/students/:id` - delete a student
 
-<!-- ### Attendances -->
+### Attendances (such as Students)
+
+- GET `/attendances` - get a list of all attendances
+- GET `/attendances/:id` - get a attendance
+- POST `/attendances` - add a new attendance (requires parameters from schema in body)
+- PUT `/attendances/:id` - update an attendance (requires parameters from schema in body)
+- DELETE `/attendances/:id` - delete an attendance
+
+I also add a `postman_collection.json` file in docs folder
