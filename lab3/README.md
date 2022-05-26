@@ -52,10 +52,10 @@ You can test the relevant routes (with **Postman**, for example), such as:
 
 ### Students
 
-GET `/students` - get a list of all students
-GET `/students/:id` - get a student
-POST `/students` - add a new student (requires a full_name parameter in body)
-PUT `/students/:id` - update a student (requires a full_name parameter in body)
-DELETE `/students/:id` - delete a student
+- GET `/students` - get a list of all students
+- GET `/students/:id` - get a student
+- POST `/students` - add a new student (requires a full_name parameter in body)
+- PUT `/students/:id` - update a student (requires a full_name parameter in body)
+- DELETE `/students/:id` - delete a student
 
 <!-- ### Attendances -->
