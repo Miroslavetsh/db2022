@@ -1,5 +1,6 @@
 PyYAML==5.1.2
-Flask==1.1.1
+Flask==2.1.0
 Flask-SQLAlchemy==2.4.1
 Flask-Migrate==2.5.2
 psycopg2==2.8.3
+Jinja2==3.0.3
