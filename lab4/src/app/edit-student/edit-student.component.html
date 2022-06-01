@@ -1,1 +1,50 @@
-<p>edit-student works!</p>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h2>Edit a Student</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="editStudent" novalidate class="form">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">Full Name</div>
+
+        <div class="col-md-4">
+          <input
+            type="text"
+            formControlName="full_name"
+            class="form-control"
+            value="{{ student?.full_name }}"
+          />
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">Presents</div>
+
+        <div class="col-md-4">
+          <input
+            type="checkbox"
+            formControlName="presents"
+            [checked]="student?.presents"
+          />
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <button type="submit" (click)="onSubmit()" class="btn btn-success">
+            Save
+          </button>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -19,11 +19,20 @@ export class StudentsService {
     return this.client.get('http://localhost:8080/endpoint');
   }
 
+  get(id: string) {
+    return this.client.get('http://localhost:8080/endpoint/student/' + id);
+  }
+
   remove(id: string) {
     return this.client.delete(
       'http://localhost:8080/endpoint/del-student/' + id
     );
   }
 
-  update() {}
+  update(id: string, student: Student) {
+    return this.client.put(
+      'http://localhost:8080/endpoint/update-student/' + id,
+      student
+    );
+  }
 }

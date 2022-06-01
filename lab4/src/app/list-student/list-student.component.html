@@ -22,13 +22,24 @@
           <td scope="row" colspan="1">{{ students.indexOf(student) }}</td>
           <td colspan="2">{{ student.full_name }}</td>
           <td colspan="1">
-            <input type="checkbox" disabled checked="{{ student.presents }}" />
+            <input
+              type="checkbox"
+              formControlName="presents"
+              [checked]="student.presents"
+              [attr.disabled]="true"
+            />
           </td>
           <td colspan="1">
-            <a routerLink="edit-student/{{ student._id }}" class="btn btn-primary">ed</a>
+            <a
+              routerLink="edit-student/{{ student._id }}"
+              class="btn btn-primary"
+              >ed</a
+            >
           </td>
           <td colspan="1">
-            <button (click)="deleteStudent(student._id)" class="btn btn-danger">del</button>
+            <button (click)="deleteStudent(student._id)" class="btn btn-danger">
+              del
+            </button>
           </td>
         </tr>
       </tbody>
