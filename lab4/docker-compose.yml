@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  data:
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./data/db:/data/db
+
+  server:
+    depends_on:
+      - data
+    build: server
+    ports:
+      - '8080:8080'
+    links:
+      - data
+
+  client:
+    build: client
+    ports:
+      - '80:80'
