@@ -42,13 +42,29 @@
         <div class="col-md-2"></div>
       </div>
 
+      <div *ngIf="groups.length === 0" class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+          Схоже, що немає груп, давайте спершу додамо хоч одну
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+
       <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-8">
+
+        <div class="col-md-8 d-flex gap-2">
           <button type="submit" (click)="onSubmit()" class="btn btn-success">
             Підтвердити
           </button>
+
+          <button type="reset" class="btn btn-primary">Скинути</button>
+
+          <a routerLink="/" class="btn btn-danger"> Відмінити </a>
         </div>
+
         <div class="col-md-2"></div>
       </div>
     </form>
