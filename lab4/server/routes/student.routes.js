@@ -24,7 +24,6 @@ studentExpressRoute.route('/:id').get((req, res) => {
 studentExpressRoute.route('/').post((req, res, next) => {
   StudentSchema.create(req.body, (error, data) => {
     if (error) return next(error)
-    console.log(JSON.stringify(data))
 
     res.json(data)
     console.log('Created Successfully!')
