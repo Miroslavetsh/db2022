@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-md-12 text-center">
     <h2>
-      <span *ngIf="students.length !== 0">Your students</span>
-      <span *ngIf="students.length === 0">No Students Here :(</span>
+      <span *ngIf="students.length !== 0">Список всіх ваших студентів</span>
+      <span *ngIf="students.length === 0"
+        >На жаль, поки немає студентів :(</span
+      >
     </h2>
   </div>
 </div>
@@ -13,10 +15,10 @@
       <thead>
         <tr>
           <th scope="col" colspan="1">#</th>
-          <th scope="col" colspan="2">Name</th>
-          <th scope="col" colspan="1">Group</th>
-          <th scope="col" colspan="1">Edit</th>
-          <th scope="col" colspan="1">Delete</th>
+          <th scope="col" colspan="2">Ім'я</th>
+          <th scope="col" colspan="1">Група</th>
+          <th scope="col" colspan="1">Змінити</th>
+          <th scope="col" colspan="1">Видалити</th>
         </tr>
       </thead>
 
@@ -30,14 +32,15 @@
           <td colspan="1">
             <a
               routerLink="edit-student/{{ student._id }}"
-              class="btn btn-primary"
-              >ed</a
+              class="btn btn-primary button"
             >
+            </a>
           </td>
           <td colspan="1">
-            <button (click)="deleteStudent(student._id)" class="btn btn-danger">
-              del
-            </button>
+            <button
+              (click)="deleteStudent(student._id)"
+              class="btn btn-danger button"
+            ></button>
           </td>
         </tr>
       </tbody>
@@ -47,6 +50,6 @@
 
 <div class="row" *ngIf="students.length === 0">
   <div class="col-md-12 text-center">
-    <a class="btn btn-primary" routerLink="/add-student">add new one</a>
+    <a class="btn btn-primary" routerLink="/add-student">Додамо нового?😉</a>
   </div>
 </div>
