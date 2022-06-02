@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/">ЛабРоб</a>
+      <a class="navbar-brand" routerLink="/">Головна</a>
 
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -41,6 +41,32 @@
               <li><hr class="dropdown-divider" /></li>
               <li>
                 <a class="dropdown-item" routerLink="/list-group"
+                  >Переглянути всі</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Предмети
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" routerLink="/add-subject"
+                  >Додати новий</a
+                >
+              </li>
+
+              <li><hr class="dropdown-divider" /></li>
+
+              <li>
+                <a class="dropdown-item" routerLink="/list-subject"
                   >Переглянути всі</a
                 >
               </li>

@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h2>
+      <span *ngIf="subjects.length !== 0">Список всіх предметів</span>
+      <span *ngIf="subjects.length === 0">Пердметів немає</span>
+    </h2>
+  </div>
+</div>
+
+<div class="row" *ngIf="subjects.length !== 0">
+  <div class="col-md-12 text-center">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col" colspan="1">#</th>
+          <th scope="col" colspan="2">Назва</th>
+          <th scope="col" colspan="1">Кількість на рік</th>
+          <th scope="col" colspan="1">Група</th>
+          <th scope="col" colspan="1">Змінити</th>
+          <th scope="col" colspan="1">Видалити</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let subject of subjects">
+          <td scope="row" colspan="1">{{ subjects.indexOf(subject) }}</td>
+          <td colspan="2">{{ subject.name }}</td>
+          <td colspan="1">{{ subject.amount_per_year }}</td>
+          <td colspan="1">{{ subject.group_id }}</td>
+          <td colspan="1">
+            <a
+              routerLink="/edit-subject/{{ subject._id }}"
+              class="btn btn-primary button"
+            >
+              зм
+            </a>
+          </td>
+          <td colspan="1">
+            <button
+              (click)="deleteSubject(subject._id)"
+              class="btn btn-danger button"
+            >
+              &times;
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row" *ngIf="subjects.length === 0">
+  <div class="col-md-12 text-center">
+    <a class="btn btn-primary" routerLink="/add-subject">Додати перший</a>
+  </div>
+</div>

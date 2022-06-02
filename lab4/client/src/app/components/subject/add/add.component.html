@@ -1,0 +1,89 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h2>Додаємо Предмет</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="addSubject" novalidate class="form">
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+          <input
+            placeholder="Назва"
+            type="text"
+            formControlName="name"
+            class="form-control"
+          />
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+          <input
+            placeholder="Кількість на рік"
+            type="number"
+            formControlName="amount_per_year"
+            class="form-control"
+          />
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+
+      <div *ngIf="groups.length !== 0" class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+          <div class="form-floating">
+            <select formControlName="group_id" class="form-select">
+              <option *ngFor="let group of groups" value="{{ group._id }}">
+                {{ group.name }}
+              </option>
+
+              <!-- <option selected value="none">Group</option> -->
+            </select>
+
+            <label for="floatingSelect">Оберіть групу</label>
+          </div>
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+
+      <div *ngIf="groups.length === 0" class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+          Схоже, що немає груп, давайте спершу
+          <a routerLink="/add-group" class="btn btn-primary">додамо</a>
+          хоч одну
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8 d-flex gap-2">
+          <button type="submit" (click)="onSubmit()" class="btn btn-success">
+            Підтвердити
+          </button>
+
+          <button type="reset" class="btn btn-primary">Скинути</button>
+
+          <a routerLink="/list-subject" class="btn btn-danger"> Відмінити </a>
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+    </form>
+  </div>
+</div>
