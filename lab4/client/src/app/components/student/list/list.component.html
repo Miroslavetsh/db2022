@@ -1,6 +1,9 @@
 <div class="row">
   <div class="col-md-12 text-center">
-    <h2>Your students</h2>
+    <h2>
+      <span *ngIf="students.length !== 0">Your students</span>
+      <span *ngIf="students.length === 0">No Students Here :(</span>
+    </h2>
   </div>
 </div>
 
@@ -22,11 +25,7 @@
           <td scope="row" colspan="1">{{ students.indexOf(student) }}</td>
           <td colspan="2">{{ student.full_name }}</td>
           <td colspan="1">
-            <!-- <input
-              type="checkbox"
-              [checked]="student"
-              [attr.disabled]="true"
-            /> -->
+            {{ student.group_id }}
           </td>
           <td colspan="1">
             <a
@@ -46,10 +45,8 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row" *ngIf="students.length === 0">
   <div class="col-md-12 text-center">
-    <p>No students here:(</p>
-
     <a class="btn btn-primary" routerLink="/add-student">add new one</a>
   </div>
 </div>

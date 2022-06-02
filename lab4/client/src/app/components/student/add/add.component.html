@@ -24,11 +24,11 @@
         <div class="col-md-4">
           <div class="form-floating">
             <select
+              formControlName="group_id"
               class="form-select"
               id="floatingSelect"
-              aria-label="Floating label select example"
             >
-              <option selected disabled>Open this select menu</option>
+              <option selected disabled>Choose a group</option>
               <option *ngFor="let group of groups" value="{{ group._id }}">
                 {{ group.name }}
               </option>

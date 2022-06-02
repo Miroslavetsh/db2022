@@ -8,6 +8,7 @@ import { EditStudentComponent } from './components/student/edit/edit.component';
 import { ListStudentComponent } from './components/student/list/list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AddGroupComponent } from './components/group/add/add.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     AddStudentComponent,
     EditStudentComponent,
     ListStudentComponent,
+    AddGroupComponent,
   ],
   imports: [
     BrowserModule,
