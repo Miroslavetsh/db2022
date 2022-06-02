@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Student from 'src/models/Student';
-import { StudentsService } from '../students.service';
+import { StudentsService } from '../../../services/students.service';
 
 @Component({
   selector: 'app-edit-student',
-  templateUrl: './edit-student.component.html',
-  styleUrls: ['./edit-student.component.css'],
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.css'],
 })
 export class EditStudentComponent implements OnInit {
   editStudent: ReturnType<FormBuilder['group']>;

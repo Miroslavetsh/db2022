@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Student from 'src/models/Student';
-import { StudentsService } from '../students.service';
+import { StudentsService } from '../../../services/students.service';
 
 @Component({
   selector: 'app-list-student',
-  templateUrl: './list-student.component.html',
-  styleUrls: ['./list-student.component.css'],
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css'],
 })
 export class ListStudentComponent implements OnInit {
   students: Array<Student>;
@@ -29,6 +29,4 @@ export class ListStudentComponent implements OnInit {
       this.students = this.students.filter((user) => user._id !== id);
     });
   }
-
-  editStudent(): void {}
 }

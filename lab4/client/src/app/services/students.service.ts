@@ -10,28 +10,28 @@ export class StudentsService {
 
   add(student: Student) {
     return this.client.post(
-      'http://localhost:8080/endpoint/add-student',
+      'http://localhost:8080/students',
       student
     );
   }
 
   list() {
-    return this.client.get('http://localhost:8080/endpoint');
+    return this.client.get('http://localhost:8080/students');
   }
 
   get(id: string) {
-    return this.client.get('http://localhost:8080/endpoint/student/' + id);
+    return this.client.get('http://localhost:8080/students/' + id);
   }
 
   remove(id: string) {
     return this.client.delete(
-      'http://localhost:8080/endpoint/del-student/' + id
+      'http://localhost:8080/students/' + id
     );
   }
 
   update(id: string, student: Student) {
     return this.client.put(
-      'http://localhost:8080/endpoint/update-student/' + id,
+      'http://localhost:8080/students/' + id,
       student
     );
   }

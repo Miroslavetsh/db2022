@@ -30,13 +30,17 @@ app.use(
 
 app.use(cors())
 
-const userRoute = require('./routes/student.routes')
+const studentRoutes = require('./routes/student.routes')
+// const teacherRoute = require('./routes/teacher.routes')
+// const attendanceRoute = require('./routes/attendance.routes')
 
-app.use('/endpoint', userRoute)
+app.use('/students', studentRoutes)
+// app.use('/teachers', teacherRoutes)
+// app.use('/attendances', attendanceRoutes)
 
 const port = process.env.PORT || 8080
 
-const server = app.listen(port, () => {
+app.listen(port, () => {
   console.log('Port connected to: ' + port)
 })
 
@@ -44,11 +48,11 @@ app.use((req, res, next) => {
   next(createError(404))
 })
 
-app.get('/', (req, res) => {
-  res.send('invaild endpoint')
+app.get('/', (_, res) => {
+  res.send('Invalid endpoint')
 })
 
-app.use(function (err, req, res, next) {
+app.use((err, _, res) => {
   if (!err.statusCode) err.statusCode = 500
   res.status(err.statusCode).send(err.message)
 })
