@@ -9,33 +9,36 @@
     <form [formGroup]="addStudent" novalidate class="form">
       <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-4">Full Name</div>
 
-        <div class="col-md-4">
-          <input type="text" formControlName="full_name" class="form-control" />
+        <div class="col-md-8">
+          <input
+            placeholder="Full Name"
+            type="text"
+            formControlName="full_name"
+            class="form-control"
+          />
         </div>
+
         <div class="col-md-2"></div>
       </div>
 
-      <div class="row">
+      <div *ngIf="groups.length !== 0" class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-4">Group</div>
 
-        <div class="col-md-4">
+        <div class="col-md-8">
           <div class="form-floating">
-            <select
-              formControlName="group_id"
-              class="form-select"
-              id="floatingSelect"
-            >
-              <option selected disabled>Choose a group</option>
+            <select formControlName="group_id" class="form-select">
               <option *ngFor="let group of groups" value="{{ group._id }}">
                 {{ group.name }}
               </option>
+
+              <!-- <option selected value="none">Group</option> -->
             </select>
+
             <label for="floatingSelect">Select one</label>
           </div>
         </div>
+
         <div class="col-md-2"></div>
       </div>
 
