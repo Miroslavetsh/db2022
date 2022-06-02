@@ -31,8 +31,6 @@ export class AddStudentComponent implements OnInit {
   ngOnInit(): void {
     this.groupService.list().subscribe((data) => {
       this.groups = Object.values(data);
-
-      console.log(data);
     });
   }
 
