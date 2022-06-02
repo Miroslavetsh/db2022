@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddGroupComponent } from './components/group/add/add.component';
 import { ListGroupComponent } from './components/group/list/list.component';
+import { EditGroupComponent } from './components/group/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ListGroupComponent } from './components/group/list/list.component';
     ListStudentComponent,
     AddGroupComponent,
     ListGroupComponent,
+    EditGroupComponent,
   ],
   imports: [
     BrowserModule,

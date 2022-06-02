@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-md-12 text-center">
-    <h2>Додаємо Групу</h2>
+    <h2>Змінюємо Групу</h2>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <form [formGroup]="addGroup" novalidate class="form">
+    <form [formGroup]="editGroup" novalidate class="form">
       <div class="row">
         <div class="col-md-2"></div>
 
@@ -16,6 +16,7 @@
             type="text"
             formControlName="name"
             class="form-control"
+            value="{{ group.name }}"
           />
         </div>
 
@@ -29,8 +30,6 @@
           <button type="submit" (click)="onSubmit()" class="btn btn-success">
             Підтвердити
           </button>
-
-          <button type="reset" class="btn btn-primary">Скинути</button>
 
           <a routerLink="/list-group" class="btn btn-danger"> Відмінити </a>
         </div>
