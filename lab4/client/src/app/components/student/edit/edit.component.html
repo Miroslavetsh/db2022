@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12 text-center">
-    <h2>Edit a Student</h2>
+    <h2>Змінюємо Студента</h2>
   </div>
 </div>
 
@@ -9,40 +9,53 @@
     <form [formGroup]="editStudent" novalidate class="form">
       <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-4">Full Name</div>
 
-        <div class="col-md-4">
+        <div class="col-md-8">
           <input
+            placeholder="Повне Ім'я (ПІБ)"
             type="text"
             formControlName="full_name"
             class="form-control"
-            value="{{ student?.full_name }}"
+            value="{{ student.full_name }}"
           />
         </div>
+
         <div class="col-md-2"></div>
       </div>
 
       <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-4">Group</div>
 
-        <div class="col-md-4">
-          <!-- <input
-            type="checkbox"
-            formControlName="presents"
-            [checked]="student?.presents"
-          /> -->
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-2"></div>
         <div class="col-md-8">
-          <button type="submit" (click)="onSubmit()" class="btn btn-success">
-            Save
-          </button>
+          <div class="form-floating">
+            <select formControlName="group_id" class="form-select">
+              <option
+                *ngFor="let group of groups"
+                value="{{ group._id }}"
+                selected="{{ group._id === student.group_id }}"
+              >
+                {{ group.name }}
+              </option>
+            </select>
+
+            <label for="floatingSelect">Оберіть групу</label>
+          </div>
         </div>
+
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8 d-flex gap-2">
+          <button type="submit" (click)="onSubmit()" class="btn btn-success">
+            Підтвердити
+          </button>
+
+          <a routerLink="/" class="btn btn-danger"> Відмінити </a>
+        </div>
+
         <div class="col-md-2"></div>
       </div>
     </form>

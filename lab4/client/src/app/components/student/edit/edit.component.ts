@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import Student from 'src/models/Student';
-import { StudentsService } from '../../../services/students.service';
+
+import { GroupsService } from '@services/groups.service';
+import { StudentsService } from '@services/students.service';
+import Group from '@models/Group';
+import Student from '@models/Student';
 
 @Component({
   selector: 'app-edit-student',
@@ -11,16 +14,20 @@ import { StudentsService } from '../../../services/students.service';
 })
 export class EditStudentComponent implements OnInit {
   editStudent: ReturnType<FormBuilder['group']>;
-  student: Student | undefined;
   id: string;
+  student: Student;
+  groups: Array<Group>;
 
   constructor(
     fb: FormBuilder,
     private router: Router,
     private studentService: StudentsService,
+    private groupsService: GroupsService,
     private url: ActivatedRoute
   ) {
     this.id = '';
+    this.groups = [];
+    this.student = {} as Student
     this.editStudent = fb.group({
       full_name: ['', Validators.required],
       presents: [true, Validators.required],
@@ -29,8 +36,13 @@ export class EditStudentComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.url.snapshot.params['id'];
+
     this.studentService.get(this.id).subscribe((data) => {
       this.editStudent.patchValue(data);
+    });
+
+    this.groupsService.list().subscribe((data) => {
+      this.groups = Object.values(data);
     });
   }
 
