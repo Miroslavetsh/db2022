@@ -38,5 +38,10 @@ export class AddStudentComponent implements OnInit {
     this.studentService.add(this.addStudent.value).subscribe(() => {
       this.router.navigate(['/']);
     });
+
+    //TODO: Adding a student to the group 
+    // this.groupService.addStudent(this.addStudent.value._id).subscribe(() => {
+    //   this.router.navigate(['/']);
+    // });
   }
 }

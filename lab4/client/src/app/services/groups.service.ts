@@ -28,4 +28,8 @@ export class GroupsService {
   update(id: string, group: Group) {
     return this.client.put('http://localhost:8080/groups/' + id, group);
   }
+
+  // addStudent(id: string, student_id: string) {
+  //   return this.client.put('http://localhost:8080/groups/' + id, student_id);
+  // }
 }
