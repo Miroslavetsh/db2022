@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import Student from 'src/models/Student';
-import { StudentsService } from '../../../services/students.service';
+
+import Student from '@models/Student';
+import { StudentsService } from '@services/students.service';
 
 @Component({
   selector: 'app-list-student',
@@ -26,7 +27,7 @@ export class ListStudentComponent implements OnInit {
 
   deleteStudent(id: string): void {
     this.studentsService.remove(id).subscribe(() => {
-      this.students = this.students.filter((user) => user._id !== id);
+      this.students = this.students.filter((student) => student._id !== id);
     });
   }
 }

@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { GroupsService } from '@services/groups.service';
-import { StudentsService } from '@services/students.service';
 import Group from '@models/Group';
 import Student from '@models/Student';
+import { GroupsService } from '@services/groups.service';
+import { StudentsService } from '@services/students.service';
 
 @Component({
   selector: 'app-edit-student',

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import Group from '@models/Group';
 import { GroupsService } from '@services/groups.service';
 import { StudentsService } from '@services/students.service';
-import Group from 'src/models/Group';
 
 @Component({
   selector: 'app-add-student',
@@ -35,7 +35,7 @@ export class AddStudentComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.studentService.add(this.addStudent.value).subscribe((data) => {
+    this.studentService.add(this.addStudent.value).subscribe(() => {
       this.router.navigate(['/']);
     });
   }
