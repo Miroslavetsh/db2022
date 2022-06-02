@@ -27,10 +27,10 @@ export class EditStudentComponent implements OnInit {
   ) {
     this.id = '';
     this.groups = [];
-    this.student = {} as Student
+    this.student = {} as Student;
     this.editStudent = fb.group({
       full_name: ['', Validators.required],
-      presents: [true, Validators.required],
+      group_id: ['', Validators.required],
     });
   }
 
@@ -47,9 +47,11 @@ export class EditStudentComponent implements OnInit {
   }
 
   onSubmit(): void {
+    console.log(this.editStudent.value);
+
     this.studentService
       .update(this.id, this.editStudent.value)
-      .subscribe((data) => {
+      .subscribe(() => {
         this.router.navigate(['/']);
       });
   }

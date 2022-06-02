@@ -29,11 +29,7 @@
         <div class="col-md-8">
           <div class="form-floating">
             <select formControlName="group_id" class="form-select">
-              <option
-                *ngFor="let group of groups"
-                value="{{ group._id }}"
-                selected="{{ group._id === student.group_id }}"
-              >
+              <option *ngFor="let group of groups" value="{{ group._id }}">
                 {{ group.name }}
               </option>
             </select>
