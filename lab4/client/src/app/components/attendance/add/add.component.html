@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h2>Додаємо Запис</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="addAttendance" novalidate class="form">
+      <div *ngIf="groups.length !== 0" class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+          <div class="form-floating">
+            <select formControlName="group_id" class="form-select">
+              <option *ngFor="let group of groups" value="{{ group._id }}">
+                {{ group.name }}
+              </option>
+
+              <!-- <option selected value="none">Група</option> -->
+            </select>
+
+            <label for="floatingSelect">Оберіть групу</label>
+          </div>
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+
+      <div *ngIf="subjects.length !== 0" class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+          <div class="form-floating">
+            <select formControlName="subject_id" class="form-select">
+              <option
+                *ngFor="let subject of subjects"
+                value="{{ subject._id }}"
+              >
+                {{ subject.name }}
+              </option>
+
+              <!-- <option selected value="none">Предмет</option> -->
+            </select>
+
+            <label for="floatingSelect">Оберіть Предмет</label>
+          </div>
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+          <input
+            placeholder="Кількість Присутніх Студентів"
+            type="number"
+            formControlName="amount_of_students_present"
+            class="form-control"
+          />
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+          <input
+            placeholder="Кількість Присутніх Студентів"
+            type="date"
+            formControlName="date"
+            class="form-control"
+          />
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8 d-flex gap-2">
+          <button type="submit" (click)="onSubmit()" class="btn btn-success">
+            Підтвердити
+          </button>
+
+          <button type="reset" class="btn btn-primary">Скинути</button>
+
+          <a routerLink="/list-group" class="btn btn-danger">Відмінити</a>
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+    </form>
+  </div>
+</div>

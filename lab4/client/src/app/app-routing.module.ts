@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddAttendanceComponent } from './components/attendance/add/add.component';
+import { EditAttendanceComponent } from './components/attendance/edit/edit.component';
+import { ListAttendanceComponent } from './components/attendance/list/list.component';
 
 import { AddGroupComponent } from './components/group/add/add.component';
 import { EditGroupComponent } from './components/group/edit/edit.component';
@@ -49,6 +52,18 @@ const routes: Routes = [
   {
     path: 'edit-subject/:id',
     component: EditSubjectComponent,
+  },
+  {
+    path: 'list-attendance',
+    component: ListAttendanceComponent,
+  },
+  {
+    path: 'add-attendance',
+    component: AddAttendanceComponent,
+  },
+  {
+    path: 'edit-attendance/:id',
+    component: EditAttendanceComponent,
   },
 ];
 

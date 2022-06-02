@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h2>
+      <span *ngIf="attendances.length !== 0">Всі Записи Відвідуваності</span>
+      <span *ngIf="attendances.length === 0">Записів немає</span>
+    </h2>
+  </div>
+</div>
+
+<div class="row" *ngIf="attendances.length !== 0">
+  <div class="col-md-12 text-center">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col" colspan="1">#</th>
+          <th scope="col" colspan="2">Дата</th>
+          <th scope="col" colspan="2">Група</th>
+          <th scope="col" colspan="2">Предмет</th>
+          <th scope="col" colspan="2">Були на Парі</th>
+          <th scope="col" colspan="1">Змінити</th>
+          <th scope="col" colspan="1">Видалити</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let attendance of attendances">
+          <td scope="row" colspan="1">{{ attendances.indexOf(attendance) }}</td>
+          <td colspan="2">{{ attendance.date }}</td>
+          <td colspan="2">{{ attendance.subject_id }}</td>
+          <td colspan="2">{{ attendance.group_id }}</td>
+          <td colspan="2">{{ attendance.amount_of_students_present }}</td>
+          <td colspan="1">
+            <a
+              routerLink="/edit-attendance/{{ attendance._id }}"
+              class="btn btn-primary button"
+            >
+              зм
+            </a>
+          </td>
+          <td colspan="1">
+            <button
+              (click)="deleteAttendance(attendance._id)"
+              class="btn btn-danger button"
+            >
+              &times;
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row" *ngIf="attendances.length === 0">
+  <div class="col-md-12 text-center">
+    <a class="btn btn-primary" routerLink="/add-attendance"
+      >Чому б не додати перший?😉</a
+    >
+  </div>
+</div>

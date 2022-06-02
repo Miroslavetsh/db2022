@@ -18,6 +18,10 @@ import { AddSubjectComponent } from './components/subject/add/add.component';
 import { EditSubjectComponent } from './components/subject/edit/edit.component';
 import { ListSubjectComponent } from './components/subject/list/list.component';
 
+import { AddAttendanceComponent } from './components/attendance/add/add.component';
+import { EditAttendanceComponent } from './components/attendance/edit/edit.component';
+import { ListAttendanceComponent } from './components/attendance/list/list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +34,9 @@ import { ListSubjectComponent } from './components/subject/list/list.component';
     AddSubjectComponent,
     EditSubjectComponent,
     ListSubjectComponent,
+    AddAttendanceComponent,
+    EditAttendanceComponent,
+    ListAttendanceComponent,
   ],
   imports: [
     BrowserModule,
