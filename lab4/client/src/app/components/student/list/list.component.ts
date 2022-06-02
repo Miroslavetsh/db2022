@@ -11,7 +11,7 @@ import { StudentsService } from '@services/students.service';
 })
 export class ListStudentComponent implements OnInit {
   students: Array<Student>;
-  constructor(private studentsService: StudentsService, router: Router) {
+  constructor(private studentsService: StudentsService) {
     this.students = [];
   }
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import Group from 'src/models/Group';
-import { GroupsService } from '../../../services/groups.service';
+
+import Group from '@models/Group';
+import { GroupsService } from '@services/groups.service';
 
 @Component({
   selector: 'app-list-student',
@@ -10,7 +11,7 @@ import { GroupsService } from '../../../services/groups.service';
 })
 export class ListGroupComponent implements OnInit {
   groups: Array<Group>;
-  constructor(private groupsService: GroupsService, router: Router) {
+  constructor(private groupsService: GroupsService) {
     this.groups = [];
   }
 
@@ -26,7 +27,7 @@ export class ListGroupComponent implements OnInit {
 
   deleteGroup(id: string): void {
     this.groupsService.remove(id).subscribe(() => {
-      this.groups = this.groups.filter((user) => user._id !== id);
+      this.groups = this.groups.filter((group) => group._id !== id);
     });
   }
 }

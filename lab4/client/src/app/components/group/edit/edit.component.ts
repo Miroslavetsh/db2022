@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { GroupsService } from '@services/groups.service';
 import Group from '@models/Group';
+import { GroupsService } from '@services/groups.service';
 
 @Component({
   selector: 'app-edit-group',
@@ -19,7 +19,6 @@ export class EditGroupComponent implements OnInit {
     fb: FormBuilder,
     private router: Router,
     private groupService: GroupsService,
-    private groupsService: GroupsService,
     private url: ActivatedRoute
   ) {
     this.id = '';
