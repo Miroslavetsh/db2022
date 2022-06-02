@@ -19,10 +19,22 @@
 
       <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-4">Presents</div>
+        <div class="col-md-4">Group</div>
 
         <div class="col-md-4">
-          <input type="checkbox" formControlName="presents" value="presents" />
+          <div class="form-floating">
+            <select
+              class="form-select"
+              id="floatingSelect"
+              aria-label="Floating label select example"
+            >
+              <option selected disabled>Open this select menu</option>
+              <option *ngFor="let group of groups" value="{{ group._id }}">
+                {{ group.name }}
+              </option>
+            </select>
+            <label for="floatingSelect">Select one</label>
+          </div>
         </div>
         <div class="col-md-2"></div>
       </div>

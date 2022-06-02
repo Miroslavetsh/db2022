@@ -31,11 +31,11 @@ app.use(
 app.use(cors())
 
 const studentRoutes = require('./routes/student.routes')
-// const teacherRoute = require('./routes/teacher.routes')
-// const attendanceRoute = require('./routes/attendance.routes')
+const groupRoutes = require('./routes/group.routes')
+// const attendanceRoutes = require('./routes/attendance.routes')
 
 app.use('/students', studentRoutes)
-// app.use('/teachers', teacherRoutes)
+app.use('/groups', groupRoutes)
 // app.use('/attendances', attendanceRoutes)
 
 const port = process.env.PORT || 8080

@@ -9,10 +9,7 @@ export class StudentsService {
   constructor(private client: HttpClient) {}
 
   add(student: Student) {
-    return this.client.post(
-      'http://localhost:8080/students',
-      student
-    );
+    return this.client.post('http://localhost:8080/students', student);
   }
 
   list() {
@@ -24,15 +21,10 @@ export class StudentsService {
   }
 
   remove(id: string) {
-    return this.client.delete(
-      'http://localhost:8080/students/' + id
-    );
+    return this.client.delete('http://localhost:8080/students/' + id);
   }
 
   update(id: string, student: Student) {
-    return this.client.put(
-      'http://localhost:8080/students/' + id,
-      student
-    );
+    return this.client.put('http://localhost:8080/students/' + id, student);
   }
 }
