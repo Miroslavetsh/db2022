@@ -1,17 +1,18 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const studentSchema = new Schema(
+const subjectSchema = new Schema(
   {
-    full_name: {
+    name: {
       type: String,
       trim: true,
     },
     group_id: Schema.Types.ObjectId,
+    amount_per_year: Integer,
   },
   {
-    collection: 'students',
+    collection: 'subjects',
   },
 )
 
-module.exports = mongoose.model('StudentSchema', studentSchema)
+module.exports = mongoose.model('SubjectSchema', subjectSchema)
