@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12 text-center">
-    <h2>Add a Group</h2>
+    <h2>Додаємо Групу</h2>
   </div>
 </div>
 
@@ -9,21 +9,32 @@
     <form [formGroup]="addGroup" novalidate class="form">
       <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-4">Name</div>
 
-        <div class="col-md-4">
-          <input type="text" formControlName="name" class="form-control" />
+        <div class="col-md-8">
+          <input
+            placeholder="Назва"
+            type="text"
+            formControlName="name"
+            class="form-control"
+          />
         </div>
+
         <div class="col-md-2"></div>
       </div>
 
       <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-8">
+
+        <div class="col-md-8 d-flex gap-2">
           <button type="submit" (click)="onSubmit()" class="btn btn-success">
-            Submit
+            Підтвердити
           </button>
+
+          <button type="reset" class="btn btn-primary">Скинути</button>
+
+          <a routerLink="/" class="btn btn-danger"> Відмінити </a>
         </div>
+
         <div class="col-md-2"></div>
       </div>
     </form>
