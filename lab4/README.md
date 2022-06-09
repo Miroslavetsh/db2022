@@ -8,4 +8,4 @@ I've defined a Dockerfile for each part of application, so You can just run `doc
 
 ## Tutorial
 
-[YouTube Tutorial Will Help You😉]({https://www.youtube.com/embed/e61EPNP83NM})
+[YouTube Tutorial Will Help You😉](https://www.youtube.com/watch?v=e61EPNP83NM)
